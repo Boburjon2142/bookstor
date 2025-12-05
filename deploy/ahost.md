@@ -1,4 +1,4 @@
-## aHost deploy bo‘yicha tezkor qo‘llanma (SQLite default)
+## aHost deploy bo‘yicha tezkor qo‘llanma
 
 ### 1. Muhitni tayyorlash
 - Python 3.12 o‘rnatilgan bo‘lishi kerak.
@@ -7,16 +7,16 @@
 - Kutubxonalar: `pip install -r requirements.txt`
 
 ### 2. Muhit o‘zgaruvchilari (.env)
-Serverda `.env` yarating (SQLite uchun soddalashtirilgan):
+Serverda `.env.example` ni nusxa ko‘chirib `.env` qiling va to‘ldiring (SQLite default):
 ```
-DJANGO_SECRET_KEY=super-secret
+DJANGO_SECRET_KEY=replace-me
 DJANGO_DEBUG=False
-DJANGO_ALLOWED_HOSTS=bilimstore.uz,www.bilimstore.uz
+DJANGO_ALLOWED_HOSTS=bilimstore.uz,www.bilimstore.uz,127.0.0.1,localhost
 DJANGO_CSRF_TRUSTED_ORIGINS=https://bilimstore.uz,https://www.bilimstore.uz
 DJANGO_SECURE_SSL_REDIRECT=True
 DJANGO_DB_ENGINE=sqlite
 ```
-> Postgres kerak bo‘lsa `DJANGO_DB_ENGINE=postgres` qiling va POSTGRES_* maydonlarini qo‘shing.
+Postgres kerak bo‘lsa `DJANGO_DB_ENGINE=postgres` qiling va `POSTGRES_DB/USER/PASSWORD/HOST/PORT` maydonlarini to‘ldiring.
 
 ### 3. Ma’lumotlar bazasi
 - SQLite: `python manage.py migrate` (agar `db.sqlite3` tayyor bo‘lsa uni ham yuklab qo‘yish mumkin).
